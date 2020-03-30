@@ -11,6 +11,10 @@ class SearchBooks extends Component {
     };
   }
 
+  /**
+   * @description Searching for new books
+   * @param {object} event - search input's callback
+   */
   searchForNewBooks = event => {
     let searchTerm = event.target.value;
     if (searchTerm) {
@@ -36,23 +40,30 @@ class SearchBooks extends Component {
     }
   };
 
+  /**
+   * @description Filter out books that don't have a thumbnail or/and authors
+   * @param {object} book - a given book
+   * @returns {boolean}
+   */
   getValidBooksWithoutMissingData = book => {
-    // filter out books without a thumbnail or authors
     return (
       typeof book.imageLinks !== "undefined" &&
       typeof book.authors !== "undefined"
     );
   };
 
+  /**
+   * @description set bookshelfs of search results
+   * @param {object} book - a given book
+   * @returns {object} updated book with bookshelf set
+   */
   getBooksWithBookshelfsUpdates = book => {
-    // assign the right bookshelfs
     let intersect = this.props.allBookshelfData.filter(
       bookshelf => bookshelf.id === book.id
     );
     intersect.length !== 0
       ? (book.shelf = intersect[0].shelf)
       : (book.shelf = "none");
-
     return book;
   };
 

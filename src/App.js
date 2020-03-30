@@ -23,6 +23,10 @@ class BooksApp extends React.Component {
     this.fetchAllBookshelfs();
   }
 
+  /**
+   * @description Fetch "Currently Reading" books from remote
+   * @param {string} bookshelf - category title
+   */
   fetchCurrentlyReadingBooks = bookshelf => {
     BooksAPI.getAll().then(res => {
       let fetchedCurrentlyReadingBooks = res.filter(
@@ -34,6 +38,10 @@ class BooksApp extends React.Component {
     });
   };
 
+  /**
+   * @description Fetch "Wanted To Read" books from remote
+   * @param {string} bookshelf - category title
+   */
   fetchWandToReadBooks = bookshelf => {
     BooksAPI.getAll().then(res => {
       let fetchedWandToReadBooks = res.filter(book => book.shelf === bookshelf);
@@ -43,6 +51,10 @@ class BooksApp extends React.Component {
     });
   };
 
+  /**
+   * @description Fetch "Read" books from remote
+   * @param {string} bookshelf - category title
+   */
   fetchReadBooks = bookshelf => {
     BooksAPI.getAll().then(res => {
       let fetchedReadBooks = res.filter(book => book.shelf === bookshelf);
@@ -52,6 +64,9 @@ class BooksApp extends React.Component {
     });
   };
 
+  /**
+   * @description Fetch ALL bookshelfs from remote
+   */
   fetchAllBookshelfs = () => {
     BooksAPI.getAll().then(allBookshelfs => {
       this.setState({
@@ -60,6 +75,11 @@ class BooksApp extends React.Component {
     });
   };
 
+  /**
+   * @description Change category of a book
+   * @param {string} bookId - book's unique ID
+   * @param {string} newShelf - book's new category
+   */
   onChangeBookshelf = (bookId, newShelf) => {
     BooksAPI.update({ id: bookId }, newShelf);
     this.fetchCurrentlyReadingBooks("currentlyReading");
