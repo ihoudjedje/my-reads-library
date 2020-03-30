@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const bookshelfChangerComponent = props => {
   return (
@@ -19,6 +20,11 @@ const bookshelfChangerComponent = props => {
       </select>
     </div>
   );
+};
+
+bookshelfChangerComponent.propTypes = {
+  onChangeBookshelf: PropTypes.func.isRequired,
+  currentBookshelf: PropTypes.string
 };
 
 export default bookshelfChangerComponent;

@@ -1,5 +1,6 @@
 import React from "react";
 import BookshelfChangerComponent from "./bookshelfchangercomponent";
+import PropTypes from "prop-types";
 
 const bookComponent = props => {
   return (
@@ -10,8 +11,7 @@ const bookComponent = props => {
           style={{
             width: props.bookCoverWidth,
             height: props.bookCoverHeight,
-            backgroundImage: "url(" + props.bookCoverUrl + ")",
-            backgroundColor: props.backgroundColor
+            backgroundImage: "url(" + props.bookCoverUrl + ")"
           }}
         ></div>
         <BookshelfChangerComponent
@@ -24,6 +24,17 @@ const bookComponent = props => {
       <div className="book-authors">{props.bookAuthors.join("<br>")}</div>
     </div>
   );
+};
+
+bookComponent.propTypes = {
+  bookId: PropTypes.string.isRequired,
+  bookTitle: PropTypes.string,
+  bookAuthors: PropTypes.array.isRequired,
+  bookCoverUrl: PropTypes.string,
+  bookCoverWidth: PropTypes.number.isRequired,
+  bookCoverHeight: PropTypes.number.isRequired,
+  onChangeBookshelf: PropTypes.func.isRequired,
+  currentBookshelf: PropTypes.string.isRequired
 };
 
 export default bookComponent;

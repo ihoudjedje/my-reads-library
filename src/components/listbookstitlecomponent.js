@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const listBooksTitleComponent = props => {
   return (
@@ -6,6 +7,10 @@ const listBooksTitleComponent = props => {
       <h1>{props.title}</h1>
     </div>
   );
+};
+
+listBooksTitleComponent.propTypes = {
+  title: PropTypes.string
 };
 
 export default listBooksTitleComponent;
