@@ -1,5 +1,5 @@
 import React from "react";
-import BookshelfChangerComponent from "./Book/BookshelfChangerComponent";
+import BookshelfChangerComponent from "./BookshelfChangerComponent";
 
 const BookComp = props => {
   return (
@@ -21,7 +21,7 @@ const BookComp = props => {
         />
       </div>
       <div className="book-title">{props.bookTitle}</div>
-      <div className="book-authors">{props.bookAuthors}</div>
+      <div className="book-authors">{props.bookAuthors.join("<br>")}</div>
     </div>
   );
 };

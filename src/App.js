@@ -5,6 +5,8 @@ import { Route } from "react-router-dom";
 import BookComp from "./components/BookComp";
 import BookshelfTitleComp from "./components/BookshelfTitleComp";
 import ListBooksTitleComponent from "./components/ListBooksTitleComponent.js";
+import SearchBooks from "./searchbooks";
+import SearchButtonComponent from "./components/SearchButtonComponent";
 
 class BooksApp extends React.Component {
   state = {
@@ -16,13 +18,15 @@ class BooksApp extends React.Component {
      */
     currentlyReadingBookshelfData: [],
     wandToReadBookshelfData: [],
-    readBookshelfData: []
+    readBookshelfData: [],
+    allBookshelfData: []
   };
 
   componentDidMount() {
     this.fetchCurrentlyReadingBooks("currentlyReading");
     this.fetchWandToReadBooks("wantToRead");
     this.fetchReadBooks("read");
+    this.fetchAllBookshelfs();
   }
 
   fetchCurrentlyReadingBooks = bookshelf => {
@@ -54,18 +58,28 @@ class BooksApp extends React.Component {
     });
   };
 
+  fetchAllBookshelfs = () => {
+    BooksAPI.getAll().then(allBookshelfs => {
+      this.setState({
+        allBookshelfData: allBookshelfs
+      });
+    });
+  };
+
   onChangeBookshelf = (bookId, newShelf) => {
     BooksAPI.update({ id: bookId }, newShelf);
     this.fetchCurrentlyReadingBooks("currentlyReading");
     this.fetchWandToReadBooks("wantToRead");
     this.fetchReadBooks("read");
+    this.fetchAllBookshelfs();
   };
 
   render() {
     const {
       currentlyReadingBookshelfData,
       wandToReadBookshelfData,
-      readBookshelfData
+      readBookshelfData,
+      allBookshelfData
     } = this.state;
 
     return (
@@ -73,7 +87,10 @@ class BooksApp extends React.Component {
         <Route
           path="/search"
           render={() => (
-            <SearchBooks onChangeBookshelf={this.onChangeBookshelf} />
+            <SearchBooks
+              onChangeBookshelf={this.onChangeBookshelf}
+              allBookshelfData={allBookshelfData}
+            />
           )}
         />
         <Route
@@ -93,7 +110,7 @@ class BooksApp extends React.Component {
                             <BookComp
                               bookId={book.id}
                               bookTitle={book.title}
-                              bookAuthors={book.authors[0]}
+                              bookAuthors={book.authors}
                               bookCoverUrl={book.imageLinks.thumbnail}
                               currentBookshelf={book.shelf}
                               onChangeBookshelf={this.onChangeBookshelf}
@@ -114,7 +131,7 @@ class BooksApp extends React.Component {
                             <BookComp
                               bookId={book.id}
                               bookTitle={book.title}
-                              bookAuthors={book.authors[0]}
+                              bookAuthors={book.authors}
                               bookCoverUrl={book.imageLinks.thumbnail}
                               currentBookshelf={book.shelf}
                               onChangeBookshelf={this.onChangeBookshelf}
@@ -135,7 +152,7 @@ class BooksApp extends React.Component {
                             <BookComp
                               bookId={book.id}
                               bookTitle={book.title}
-                              bookAuthors={book.authors[0]}
+                              bookAuthors={book.authors}
                               bookCoverUrl={book.imageLinks.thumbnail}
                               currentBookshelf={book.shelf}
                               onChangeBookshelf={this.onChangeBookshelf}
@@ -149,14 +166,10 @@ class BooksApp extends React.Component {
                   </div>
                 </div>
               </div>
+              <SearchButtonComponent title="Add a book" />
             </div>
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>
-                Add a book
-              </button>
-            </div>
-          </div>
-        )}
+          )}
+        />
       </div>
     );
   }
