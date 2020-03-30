@@ -2,20 +2,14 @@ import React from "react";
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 import { Route } from "react-router-dom";
-import BookComp from "./components/BookComp";
-import BookshelfTitleComp from "./components/BookshelfTitleComp";
-import ListBooksTitleComponent from "./components/ListBooksTitleComponent.js";
-import SearchBooks from "./searchbooks";
-import SearchButtonComponent from "./components/SearchButtonComponent";
+import BookComponent from "./components/bookcomponent";
+import BookshelfTitleComp from "./components/bookshelftitlecomponent";
+import ListBooksTitleComponent from "./components/listbookstitlecomponent";
+import SearchBooks from "./screens/searchbooks";
+import SearchButtonComponent from "./components/searchbuttoncomponent";
 
 class BooksApp extends React.Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
     currentlyReadingBookshelfData: [],
     wandToReadBookshelfData: [],
     readBookshelfData: [],
@@ -107,7 +101,7 @@ class BooksApp extends React.Component {
                       <ol className="books-grid">
                         {currentlyReadingBookshelfData.map(book => (
                           <li key={book.id}>
-                            <BookComp
+                            <BookComponent
                               bookId={book.id}
                               bookTitle={book.title}
                               bookAuthors={book.authors}
@@ -128,7 +122,7 @@ class BooksApp extends React.Component {
                       <ol className="books-grid">
                         {wandToReadBookshelfData.map(book => (
                           <li key={book.id}>
-                            <BookComp
+                            <BookComponent
                               bookId={book.id}
                               bookTitle={book.title}
                               bookAuthors={book.authors}
@@ -149,7 +143,7 @@ class BooksApp extends React.Component {
                       <ol className="books-grid">
                         {readBookshelfData.map(book => (
                           <li key={book.id}>
-                            <BookComp
+                            <BookComponent
                               bookId={book.id}
                               bookTitle={book.title}
                               bookAuthors={book.authors}

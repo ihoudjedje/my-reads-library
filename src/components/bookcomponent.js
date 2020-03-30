@@ -1,7 +1,7 @@
 import React from "react";
-import BookshelfChangerComponent from "./BookshelfChangerComponent";
+import BookshelfChangerComponent from "./bookshelfchangercomponent";
 
-const BookComp = props => {
+const bookComponent = props => {
   return (
     <div className="book">
       <div className="book-top">
@@ -26,4 +26,4 @@ const BookComp = props => {
   );
 };
 
-export default BookComp;
+export default bookComponent;

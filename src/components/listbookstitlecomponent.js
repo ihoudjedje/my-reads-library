@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListBooksTitleComponent = props => {
+const listBooksTitleComponent = props => {
   return (
     <div className="list-books-title">
       <h1>{props.title}</h1>
@@ -8,4 +8,4 @@ const ListBooksTitleComponent = props => {
   );
 };
 
-export default ListBooksTitleComponent;
+export default listBooksTitleComponent;

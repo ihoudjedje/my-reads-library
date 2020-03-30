@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import BookComp from "./components/BookComp";
-import * as BooksAPI from "./BooksAPI";
+import BookComponent from "../components/bookcomponent";
+import * as BooksAPI from "../BooksAPI";
 
 class SearchBooks extends Component {
   constructor(props) {
@@ -78,7 +78,7 @@ class SearchBooks extends Component {
           <ol className="books-grid">
             {searchResults.map(book => (
               <li key={book.id}>
-                <BookComp
+                <BookComponent
                   bookId={book.id}
                   bookTitle={book.title}
                   bookAuthors={book.authors}

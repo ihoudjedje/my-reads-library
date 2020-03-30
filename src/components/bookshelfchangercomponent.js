@@ -1,6 +1,6 @@
 import React from "react";
 
-const BookshelfChangerComponent = props => {
+const bookshelfChangerComponent = props => {
   return (
     <div className="book-shelf-changer">
       <select
@@ -21,4 +21,4 @@ const BookshelfChangerComponent = props => {
   );
 };
 
-export default BookshelfChangerComponent;
+export default bookshelfChangerComponent;
