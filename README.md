@@ -2,6 +2,10 @@
 
 Udacity's React Nanodegree 1st Project - Books library web app
 
+## Result
+
+![](result.gif)
+
 ## TL;DR
 
 To get started:
