@@ -11,18 +11,21 @@
     Udacity's <a href="https://www.udacity.com/course/r eact-nanodegree--nd019">React Nanodegree</a> 1st Project
     <br />
     <br />
+    <a href="https://ilyesudo-myreads.netlify.app">View Demo</a>
+    ·
     <a href="https://github.com/ilyeSudo/my-reads-library/issues">Report Bug</a>
     ·
     <a href="https://github.com/ilyeSudo/my-reads-library/issues">Request Feature</a>
   </p>
 </p>
 
-<!-- TABLE OF CONTENTS -->
+&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; [![Netlify Status](https://api.netlify.com/api/v1/badges/29db1a09-1e39-495d-9c96-3ac14e8cfca9/deploy-status)](https://app.netlify.com/sites/ilyesudo-myreads/deploys)
 
 ## Table of Contents
 
 - [About the Project](#about-the-project)
-  - [GIF Demo](gif-demo)
+  - [Live Demo](#live-demo)
+  - [GIF Demo](#gif-demo)
   - [User Experience](#user-experience)
   - [Built With](#built-with)
   - [Important](#important)
@@ -38,9 +41,9 @@
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
-<!-- ABOUT THE PROJECT -->
-
 ## About The Project
+
+### [Live Demo](https://ilyesudo-myreads.netlify.app)
 
 ### GIF Demo
 
